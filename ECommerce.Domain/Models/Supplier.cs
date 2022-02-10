@@ -1,16 +1,17 @@
 using System.Collections.Generic;
+using ECommerce.Domain.Interface;
 using ECommerce.Domain.Tools;
 
 namespace ECommerce.Domain.Models
 {
-    public abstract class Supplier : Entity
+    public abstract class Supplier : Entity,IAggregateRoot
     {
          public bool Active { get; private set; }
         public string FantasyName { get; private set; }
         public Email Email { get;private set; }
         public Address Address { get;private set; }
         public ICollection<Phone> Phone { get;private set; } = new List<Phone>();
-        public ICollection<Product> Product {get;private set;} = new List<Product>();
+        public IEnumerable<Product> Product {get;private set;} = new List<Product>();
 
         protected Supplier(){}
 

@@ -13,9 +13,10 @@ namespace ECommerce.Domain.Models
         public string State { get; private set; }
         public string Complement { get; private set; }
         public string Reference { get; private set; }
+        public Guid SupplierId { get; set; }
 
         protected Address() { }
-        public Address(string zipCode, string street, string number, string neighborhood, string city, string state)
+        public Address(string zipCode, string street, string number, string neighborhood, string city, string state, Guid supplierId)
         {
             SetZipCode(zipCode);
             SetStreet(street);
@@ -23,6 +24,7 @@ namespace ECommerce.Domain.Models
             SetNeighborhood(neighborhood);
             SetCity(city);
             SetState(state);
+            SetSupplierId(supplierId);
         }
         public void SetState(string state)
         {
@@ -68,6 +70,11 @@ namespace ECommerce.Domain.Models
         {
             IsNullOrEmpty(reference,Reference);
             Reference = reference;
+        }
+        public void SetSupplierId(Guid Id)
+        {
+            if(Id == Guid.Empty) throw new DomainExceptions("the Supplier Id attribute cannot be null");
+            SupplierId = Id;
         }
         private void IsNullOrEmpty(string text, string message){
             if(string.IsNullOrEmpty(text))

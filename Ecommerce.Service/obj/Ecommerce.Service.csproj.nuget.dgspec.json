@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\Projeto Ecommerce\\ECommerce\\Ecommerce.Service\\Ecommerce.Service.csproj": {}
+    "c:\\Users\\jramosli\\WorkSpace\\Projetos\\Melhoria do projeto 2 fase\\Ecommerce\\Ecommerce.Service\\Ecommerce.Service.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\Projeto Ecommerce\\ECommerce\\Ecommerce.Service\\Ecommerce.Service.csproj": {
+    "c:\\Users\\jramosli\\WorkSpace\\Projetos\\Melhoria do projeto 2 fase\\Ecommerce\\ECommerce.Domain\\ECommerce.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\Projeto Ecommerce\\ECommerce\\Ecommerce.Service\\Ecommerce.Service.csproj",
-        "projectName": "Ecommerce.Service",
-        "projectPath": "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\Projeto Ecommerce\\ECommerce\\Ecommerce.Service\\Ecommerce.Service.csproj",
-        "packagesPath": "C:\\Users\\Viviane\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\Projeto Ecommerce\\ECommerce\\Ecommerce.Service\\obj\\",
+        "projectUniqueName": "c:\\Users\\jramosli\\WorkSpace\\Projetos\\Melhoria do projeto 2 fase\\Ecommerce\\ECommerce.Domain\\ECommerce.Domain.csproj",
+        "projectName": "ECommerce.Domain",
+        "projectPath": "c:\\Users\\jramosli\\WorkSpace\\Projetos\\Melhoria do projeto 2 fase\\Ecommerce\\ECommerce.Domain\\ECommerce.Domain.csproj",
+        "packagesPath": "C:\\Users\\jramosli\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\jramosli\\WorkSpace\\Projetos\\Melhoria do projeto 2 fase\\Ecommerce\\ECommerce.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Viviane\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\jramosli\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -54,7 +52,93 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "c:\\Users\\jramosli\\WorkSpace\\Projetos\\Melhoria do projeto 2 fase\\Ecommerce\\Ecommerce.Service\\Ecommerce.Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\jramosli\\WorkSpace\\Projetos\\Melhoria do projeto 2 fase\\Ecommerce\\Ecommerce.Service\\Ecommerce.Service.csproj",
+        "projectName": "Ecommerce.Service",
+        "projectPath": "c:\\Users\\jramosli\\WorkSpace\\Projetos\\Melhoria do projeto 2 fase\\Ecommerce\\Ecommerce.Service\\Ecommerce.Service.csproj",
+        "packagesPath": "C:\\Users\\jramosli\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\jramosli\\WorkSpace\\Projetos\\Melhoria do projeto 2 fase\\Ecommerce\\Ecommerce.Service\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\jramosli\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "c:\\Users\\jramosli\\WorkSpace\\Projetos\\Melhoria do projeto 2 fase\\Ecommerce\\ECommerce.Domain\\ECommerce.Domain.csproj": {
+                "projectPath": "c:\\Users\\jramosli\\WorkSpace\\Projetos\\Melhoria do projeto 2 fase\\Ecommerce\\ECommerce.Domain\\ECommerce.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[10.3.6, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.22, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.22, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.22, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.22, )"
+            },
+            "X.PagedList.Mvc.Core": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,12 +1,15 @@
+using System.Collections.Generic;
+using ECommerce.Domain.Interface;
 using ECommerce.Domain.Tools;
 
 namespace ECommerce.Domain.Models
 {
-    public class Costumer : Entity
+    public class Costumer : Entity, IAggregateRoot
     {
         public string FullName { get;private set; }
         public string Cpf { get;private set; }
         public Email Email { get;private set; }
+        public IEnumerable<ShoppingCart> ShoppingCarts { get;private set; }
 
         public Costumer(string fullname, string cpf, Email email)
         {
