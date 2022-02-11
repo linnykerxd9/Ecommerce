@@ -9,7 +9,6 @@ namespace ECommerce.Domain.Models
         public string FullName { get;private set; }
         public string Cpf { get;private set; }
         public Email Email { get;private set; }
-        public IEnumerable<ShoppingCart> ShoppingCarts { get;private set; }
 
         public Costumer(string fullname, string cpf, Email email)
         {
