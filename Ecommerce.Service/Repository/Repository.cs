@@ -10,10 +10,10 @@ using X.PagedList;
 
 namespace Ecommerce.Service.Repository
 {
-    public class Repository<T> : IRepository<T> where T : Entity, IAggregateRoot
+    public abstract class Repository<T> : IRepository<T> where T : Entity, IAggregateRoot
     {
         protected readonly ECommerceContext _context;
-        public Repository(ECommerceContext context)
+        protected Repository(ECommerceContext context)
         {
             _context = context;
         }

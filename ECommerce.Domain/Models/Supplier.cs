@@ -6,7 +6,7 @@ namespace ECommerce.Domain.Models
 {
     public abstract class Supplier : Entity,IAggregateRoot
     {
-         public bool Active { get; private set; }
+        public bool Active { get; private set; }
         public string FantasyName { get; private set; }
         public Email Email { get;private set; }
         public Address Address { get;private set; }

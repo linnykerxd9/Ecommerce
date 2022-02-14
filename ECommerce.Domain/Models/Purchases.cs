@@ -5,7 +5,7 @@ namespace ECommerce.Domain.Models
 {
     public class Purchases : Entity
     {
-         public int Quantity { get;private set; }
+        public int Quantity { get;private set; }
         public decimal TotalPrice  { get;private set; }
         public string CodePurchase  { get;private set; }
         public Guid CustomersId { get; set; }
