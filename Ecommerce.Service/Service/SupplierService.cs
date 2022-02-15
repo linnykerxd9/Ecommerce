@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Ecommerce.Service.DTO;
 using Ecommerce.Service.Interface;
 using ECommerce.Domain.Interface;
 using ECommerce.Domain.Models;
@@ -21,6 +22,15 @@ namespace Ecommerce.Service.Service
         {
             return await _supplierRepository.Find(expression);
         }
+        public async Task<SupplierJuridical> FindJuridical(Expression<Func<SupplierJuridical, bool>> expression)
+        {
+            return await _supplierRepository.FindJuridical(expression);
+        }
+
+        public async Task<SupplierPhysical> FindPhysical(Expression<Func<SupplierPhysical, bool>> expression)
+        {
+            return await _supplierRepository.FindPhysical(expression);
+        }
         public async Task<IEnumerable<Supplier>> ToList()
         {
             return await _supplierRepository.ToList();
@@ -36,56 +46,45 @@ namespace Ecommerce.Service.Service
                 return await _supplierRepository.Pagination(page,size,x => x.FantasyName.ToLower().Contains(query.ToLower()));
             }
         }
-        public async Task<SupplierJuridical> FindJuridical(Expression<Func<SupplierJuridical, bool>> expression)
+
+        public Task InsertSupplierJuridical(SupplierJuridicalDTO entity)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<SupplierPhysical> FindPhysical(Expression<Func<SupplierPhysical, bool>> expression)
+        public Task InsertSupplierPhysical(SupplierPhysicalDTO entity)
         {
             throw new NotImplementedException();
         }
 
-        public Task InsertPhone(Phone phone)
+        public Task RemoveSupplier(SupplierDTO entity)
         {
             throw new NotImplementedException();
         }
 
-        public Task InsertSupplierJuridical(SupplierJuridical entity)
+        public Task UpdateSupplier(SupplierDTO entity)
         {
             throw new NotImplementedException();
         }
 
-        public Task InsertSupplierPhysical(SupplierPhysical entity)
+        public Task InsertPhone(PhoneDTO phone)
         {
             throw new NotImplementedException();
         }
 
-        public Task RemovePhone(Phone phone)
+        public Task RemovePhone(PhoneDTO phone)
         {
             throw new NotImplementedException();
         }
 
-        public Task RemoveSupplier(Supplier entity)
+        public Task UpdatePhone(PhoneDTO phone)
         {
             throw new NotImplementedException();
         }
 
-
-        public Task UpdateAddress(Address address)
+        public Task UpdateAddress(AddressDTO address)
         {
             throw new NotImplementedException();
         }
-
-        public Task UpdatePhone(Phone phone)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateSupplier(Supplier entity)
-        {
-            throw new NotImplementedException();
-        }
-
     }
 }

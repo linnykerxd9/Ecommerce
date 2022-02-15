@@ -1,8 +1,10 @@
 using System;
+using FluentValidation;
+using FluentValidation.Results;
 
 namespace Ecommerce.Service.DTO
 {
-    public class EmailDTO : EntityDTO
+    public class EmailDTO 
     {
         public string EmailAddress { get; set; }
         public Guid SupplierId { get; set; }
@@ -11,6 +13,21 @@ namespace Ecommerce.Service.DTO
         {
             EmailAddress = emailAddress;
             SupplierId = supplierId;
+        }
+    public ValidationResult IsValid(){
+            return new EmailValidator().Validate(this);
+        }
+    }
+    public class EmailValidator : AbstractValidator<EmailDTO>
+    {
+        public EmailValidator()
+        {
+            RuleFor(x => x.EmailAddress)
+                    .MaximumLength(256)
+                    .WithMessage("the Email address field for can have up to 256 characters")
+                    .NotEmpty()
+                    .NotNull()
+                    .WithMessage("Email address is null");
         }
     }
 }

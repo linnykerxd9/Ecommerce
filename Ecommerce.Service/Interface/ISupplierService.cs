@@ -22,6 +22,6 @@ namespace Ecommerce.Service.Interface
         Task InsertPhone(PhoneDTO phone);
         Task RemovePhone(PhoneDTO phone);
         Task UpdatePhone(PhoneDTO phone);
-        Task UpdateAddress(AddressDto address);
+        Task UpdateAddress(AddressDTO address);
     }
 }

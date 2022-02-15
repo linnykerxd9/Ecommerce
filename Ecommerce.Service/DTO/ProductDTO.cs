@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using FluentValidation;
+using FluentValidation.Results;
 
 namespace Ecommerce.Service.DTO
 {
-    public class ProductDTO : EntityDTO
+    public class ProductDTO
     {
          public bool Active { get;  set; }
         public string Name { get;  set; }
@@ -26,6 +28,41 @@ namespace Ecommerce.Service.DTO
             Images = images;
             SupplierId = supplierId;
             CategoryId = categoryId;
+        }
+   public ValidationResult IsValid(){
+            return new ProductValidator().Validate(this);
+        }
+    }
+    public class ProductValidator : AbstractValidator<ProductDTO>
+    {
+        public ProductValidator()
+        {
+            RuleFor(x => x.Active)
+                    .NotEmpty()
+                    .NotNull()
+                    .WithMessage("Active is null");
+            RuleFor(x => x.Name)
+                    .MaximumLength(256)
+                    .WithMessage("the Name field for can have up to 256 characters")
+                    .NotEmpty()
+                    .NotNull()
+                    .WithMessage("Name is null");
+            RuleFor(x => x.BarCode)
+                    .MaximumLength(100)
+                    .WithMessage("the Bar code for can have up to 100 characters")
+                    .NotEmpty()
+                    .NotNull()
+                    .WithMessage("BarCode is null");
+            RuleFor(x => x.QuantityStock)
+                    .NotEmpty()
+                    .NotNull()
+                    .WithMessage("Quantity Stock is null");
+            RuleFor(x => x.PriceSales)
+                    .NotNull()
+                    .WithMessage("Price Sales is null");
+            RuleFor(x => x.PricePurchase)
+                    .NotNull()
+                    .WithMessage("Price Purchase is null");
         }
     }
 }

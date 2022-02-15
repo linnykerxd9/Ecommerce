@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Ecommerce.Service.DTO;
 using Ecommerce.Service.Interface;
 using ECommerce.Domain.Interface;
 using ECommerce.Domain.Models;
@@ -21,6 +22,7 @@ namespace Ecommerce.Service.Service
         {
             return await _productRepository.Find(expression);
         }
+
         public async Task<Pagination<Product>> Pagination(int page, int size, string query)
         {
             if(query == null)
@@ -34,34 +36,33 @@ namespace Ecommerce.Service.Service
                                                             x.BarCode.Contains(query));
             }
         }
+
+        public Task InsertImage(ImageDTO image)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task InsertProduct(PlatformID entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task RemoveImage(ImageDTO image)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task RemoveProduct(PlatformID entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<IEnumerable<Product>> ToList()
         {
             return await _productRepository.ToList();
         }
 
-        public Task InsertImage(Image image)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task InsertProduct(Product entity)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public Task RemoveImage(Image image)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task RemoveProduct(Product entity)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public Task UpdateProduct(Product entity)
+        public Task UpdateProduct(PlatformID entity)
         {
             throw new NotImplementedException();
         }

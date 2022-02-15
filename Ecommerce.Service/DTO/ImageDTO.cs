@@ -2,9 +2,9 @@ using System;
 
 namespace Ecommerce.Service.DTO
 {
-    public class ImageDTO : EntityDTO
+    public class ImageDTO 
     {
-         public string ImagePath { get; set; }
+        public string ImagePath { get; set; }
         public Guid ProductId { get; set; }
 
         public ImageDTO(string imagePath, Guid productId)

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Ecommerce.Service.DTO;
 using Ecommerce.Service.Interface;
 using ECommerce.Domain.Interface;
 using ECommerce.Domain.Models;
@@ -17,10 +18,26 @@ namespace Ecommerce.Service.Service
             _costumerRepository = costumerRepository;
         }
 
+        public Task AddCostumer(CostumerDTO category)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<Costumer> Find(Expression<Func<Costumer, bool>> expression)
         {
             return await _costumerRepository.Find(expression);
         }
+
+        public Task InsertPurchases(IEnumerable<PurchasesDTO> purchases)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task InsertShoppingCart(IEnumerable<ShoppingCartDTO> shoppingCart)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<Pagination<Costumer>> Pagination(int page, int size, string query)
         {
             if(query == null)
@@ -33,42 +50,23 @@ namespace Ecommerce.Service.Service
                                                                             x.Email.EmailAddress.ToLower().Contains(query.ToLower()));
             }
         }
-        public async Task<IEnumerable<Costumer>> ToList()
-        {
-           return await _costumerRepository.ToList();
-        }
-
-        public  Task AddCostumer(Costumer costumer)
-        {
-            throw new NotImplementedException();
-        }
-        public Task InsertPurchases(IEnumerable<Purchases> purchases)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task InsertShoppingCart(IEnumerable<ShoppingCart> shoppingCart)
-        {
-            throw new NotImplementedException();
-        }
-
 
         public Task<IEnumerable<Purchases>> PurchacesToList(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public Task RemoveCostumer(Costumer costumer)
+        public Task RemoveCostumer(CostumerDTO category)
         {
             throw new NotImplementedException();
         }
 
-        public Task RemovePurchases(Purchases purchases)
+        public Task RemovePurchases(PurchasesDTO purchases)
         {
             throw new NotImplementedException();
         }
 
-        public Task RemoveShoppingCart(IEnumerable<ShoppingCart> shoppingCart)
+        public Task RemoveShoppingCart(IEnumerable<ShoppingCartDTO> shoppingCart)
         {
             throw new NotImplementedException();
         }
@@ -78,8 +76,12 @@ namespace Ecommerce.Service.Service
             throw new NotImplementedException();
         }
 
+        public async Task<IEnumerable<Costumer>> ToList()
+        {
+           return await _costumerRepository.ToList();
+        }
 
-        public Task UpdateCostumer(Costumer costumer)
+        public Task UpdateCostumer(CostumerDTO category)
         {
             throw new NotImplementedException();
         }
