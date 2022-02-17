@@ -1,4 +1,5 @@
 using System;
+using ECommerce.Domain.Models;
 using FluentValidation;
 using FluentValidation.Results;
 
@@ -18,8 +19,12 @@ namespace Ecommerce.Service.DTO
             CustomersId = customersId;
             ProductId = productId;
         }
-    public ValidationResult Validate(){
+        public ValidationResult Validate(){
             return new ShoppingCartValidator().Validate(this);
+        }
+        public ShoppingCart ToDomain()
+        {
+            return new ShoppingCart(Quantity,TotalPrice,ProductId,CustomersId);
         }
     }
     public class ShoppingCartValidator : AbstractValidator<ShoppingCartDTO>

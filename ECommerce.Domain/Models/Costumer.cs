@@ -27,6 +27,7 @@ namespace ECommerce.Domain.Models
             Cpf = cpf;
         }
         public void SetEmail(Email email){
+            email.SetCostumerId(this.Id);
             Email = email;
         }
 

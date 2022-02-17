@@ -1,4 +1,5 @@
 using Ecommerce.Service.Tools;
+using ECommerce.Domain.Models;
 using FluentValidation;
 using FluentValidation.Results;
 
@@ -18,6 +19,10 @@ namespace Ecommerce.Service.DTO
         }
         public ValidationResult Validate(){
             return new CostumerValidator().Validate(this);
+        }
+        public Costumer ToDomain()
+        {
+            return new Costumer(FullName,Cpf,new Email(Email.EmailAddress));
         }
     }
     public class CostumerValidator : AbstractValidator<CostumerDTO>

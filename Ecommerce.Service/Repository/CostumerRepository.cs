@@ -20,6 +20,10 @@ namespace Ecommerce.Service.Repository
         {
             return await _context.Set<Costumer>().Include(x => x.Email).Where(expression).FirstOrDefaultAsync();
         }
+        public async Task<ShoppingCart> FindShoppingCart(Expression<Func<ShoppingCart, bool>> expression)
+        {
+            return await _context.ShoppingCart.Include(x => x.Product).Where(expression).FirstOrDefaultAsync();
+        }
         public async override Task<Pagination<Costumer>> Pagination(int page, int size, Expression<Func<Costumer, bool>> expression = null)
         {
             IPagedList<Costumer> listPagination;
@@ -66,9 +70,14 @@ namespace Ecommerce.Service.Repository
             _context.Purchases.Remove(purchase);
             return Task.CompletedTask;
         }
-        public Task InsertShoppingCart(ShoppingCart shoppingCart)
+        public async Task InsertShoppingCart(ShoppingCart shoppingCart)
         {
-            throw new NotImplementedException();
+            await _context.ShoppingCart.AddAsync(shoppingCart);
+        }
+        public Task UpdateShoppingCart(ShoppingCart shoppingCart)
+        {
+            _context.ShoppingCart.Update(shoppingCart);
+            return Task.CompletedTask;
         }
         public async Task RemoveAllItemsShoppingCart(IEnumerable<ShoppingCart> shoppingCart)
         {

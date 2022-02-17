@@ -1,22 +1,22 @@
 using System;
+using ECommerce.Domain.Models;
 using FluentValidation;
 using FluentValidation.Results;
 
 namespace Ecommerce.Service.DTO
 {
-    public class EmailDTO 
+    public class EmailDTO
     {
         public string EmailAddress { get; set; }
-        public Guid SupplierId { get; set; }
 
-        public EmailDTO(string emailAddress, Guid supplierId)
+        public EmailDTO(string emailAddress)
         {
             EmailAddress = emailAddress;
-            SupplierId = supplierId;
         }
-    public ValidationResult Validate(){
+        public ValidationResult Validate(){
             return new EmailValidator().Validate(this);
         }
+
     }
     public class EmailValidator : AbstractValidator<EmailDTO>
     {
