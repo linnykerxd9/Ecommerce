@@ -16,7 +16,7 @@ namespace Ecommerce.Service.DTO
             Number = number;
             SupplierId = supplierId;
         }
-    public ValidationResult IsValid(){
+    public ValidationResult Validate(){
             return new PhoneValidator().Validate(this);
         }
     }

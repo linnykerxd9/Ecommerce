@@ -45,6 +45,7 @@ namespace Ecommerce.Service.Repository
         {
             return await _context.Purchases.Include(x => x.Product)
                                               .ThenInclude(x => x.Supplier)
+                                              .Where(x => x.CustomersId == id)
                                               .ToListAsync();
         }
 
@@ -52,6 +53,7 @@ namespace Ecommerce.Service.Repository
         {
             return await _context.ShoppingCart.Include(x => x.Product)
                                               .ThenInclude(x => x.Supplier)
+                                              .Where(x => x.CustomersId == id)
                                               .ToListAsync();
         }
 
@@ -59,24 +61,19 @@ namespace Ecommerce.Service.Repository
         {
             await _context.Purchases.AddRangeAsync(purchases);
         }
-
-        public async Task InsertShoppingCart(IEnumerable<ShoppingCart> shoppingCart)
-        {
-            await _context.ShoppingCart.AddRangeAsync(shoppingCart);
-        }
-
         public Task RemovePurchases(Purchases purchase)
         {
             _context.Purchases.Remove(purchase);
             return Task.CompletedTask;
         }
-
-        public Task RemoveShoppingCart(IEnumerable<ShoppingCart> shoppingCart)
+        public Task InsertShoppingCart(ShoppingCart shoppingCart)
         {
-            _context.ShoppingCart.RemoveRange(shoppingCart);
-            return Task.CompletedTask;
+            throw new NotImplementedException();
         }
-
+        public async Task RemoveAllItemsShoppingCart(IEnumerable<ShoppingCart> shoppingCart)
+        {
+            await _context.ShoppingCart.AddRangeAsync(shoppingCart);
+        }
 
     }
 }

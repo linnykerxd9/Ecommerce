@@ -12,10 +12,12 @@ namespace Ecommerce.Service.Service
     public class ProductService : IProductService
     {
         private readonly IProductRepository _productRepository;
+        private readonly NotificationService _notificationService;
 
-        public ProductService(IProductRepository productRepository)
+        public ProductService(IProductRepository productRepository, NotificationService notificationService)
         {
             _productRepository = productRepository;
+            _notificationService = notificationService;
         }
 
         public async Task<Product> Find(Expression<Func<Product, bool>> expression)
@@ -42,8 +44,16 @@ namespace Ecommerce.Service.Service
             throw new NotImplementedException();
         }
 
-        public Task InsertProduct(PlatformID entity)
+        public async Task InsertProduct(ProductDTO entity)
         {
+            if(!entity.Validate().IsValid)
+            {
+                foreach (var erro in entity.Validate().Errors)
+                {
+                    _notificationService.AddError(erro.ErrorMessage);
+                }
+                return;
+            }
             throw new NotImplementedException();
         }
 
@@ -52,8 +62,16 @@ namespace Ecommerce.Service.Service
             throw new NotImplementedException();
         }
 
-        public Task RemoveProduct(PlatformID entity)
+        public async Task RemoveProduct(ProductDTO entity)
         {
+            if(!entity.Validate().IsValid)
+            {
+                foreach (var erro in entity.Validate().Errors)
+                {
+                    _notificationService.AddError(erro.ErrorMessage);
+                }
+                return;
+            }
             throw new NotImplementedException();
         }
 
@@ -62,8 +80,16 @@ namespace Ecommerce.Service.Service
             return await _productRepository.ToList();
         }
 
-        public Task UpdateProduct(PlatformID entity)
+        public async Task UpdateProduct(ProductDTO entity)
         {
+            if(!entity.Validate().IsValid)
+            {
+                foreach (var erro in entity.Validate().Errors)
+                {
+                    _notificationService.AddError(erro.ErrorMessage);
+                }
+                return;
+            }
             throw new NotImplementedException();
         }
     }

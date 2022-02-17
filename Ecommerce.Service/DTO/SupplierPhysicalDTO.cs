@@ -18,7 +18,7 @@ namespace Ecommerce.Service.DTO
             Cpf = cpf;
             BirthDate = birthDate;
         }
-        public override ValidationResult IsValid(){
+        public override ValidationResult Validate(){
             return new SupplierPhysicalValidator().Validate(this);
         }
     }

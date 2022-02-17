@@ -28,7 +28,7 @@ namespace Ecommerce.Service.DTO
             Reference = reference;
             SupplierId = supplierId;
         }
-        public  ValidationResult IsValid(){
+        public  ValidationResult Validate(){
             return new AddressValidator().Validate(this);
         }
     }

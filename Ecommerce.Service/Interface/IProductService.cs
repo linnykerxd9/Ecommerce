@@ -12,10 +12,10 @@ namespace Ecommerce.Service.Interface
          Task<IEnumerable<Product>> ToList();
         Task<Product> Find(Expression<Func<Product,bool>> expression);
         Task<Pagination<Product>> Pagination(int page, int size, string query);
+        Task InsertProduct(ProductDTO entity);
+        Task RemoveProduct(ProductDTO entity);
+        Task UpdateProduct(ProductDTO entity);
          Task InsertImage(ImageDTO image);
          Task RemoveImage(ImageDTO image);
-        Task InsertProduct(PlatformID entity);
-        Task RemoveProduct(PlatformID entity);
-        Task UpdateProduct(PlatformID entity);
     }
 }

@@ -20,7 +20,7 @@ namespace Ecommerce.Service.DTO
             Address = address;
             Phone = phone;
         }
-    public virtual ValidationResult IsValid(){
+    public virtual ValidationResult Validate(){
             return new SupplierValidator().Validate(this);
         }
     }

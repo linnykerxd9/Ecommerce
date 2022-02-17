@@ -19,7 +19,7 @@ namespace Ecommerce.Service.DTO
             Cnpj = cnpj;
             OpenDate = openDate;
         }
-        public override ValidationResult IsValid(){
+        public override ValidationResult Validate(){
             return new SupplierJuridicalValidator().Validate(this);
         }
     }

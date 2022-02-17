@@ -12,10 +12,12 @@ namespace Ecommerce.Service.Service
     public class SupplierService : ISupplierService
     {
         private readonly ISupplierRepository _supplierRepository;
+        private readonly NotificationService _notificationService;
 
-        public SupplierService(ISupplierRepository supplierRepository)
+        public SupplierService(ISupplierRepository supplierRepository, NotificationService notificationService)
         {
             _supplierRepository = supplierRepository;
+            _notificationService = notificationService;
         }
 
         public async Task<Supplier> Find(Expression<Func<Supplier, bool>> expression)
@@ -47,43 +49,108 @@ namespace Ecommerce.Service.Service
             }
         }
 
-        public Task InsertSupplierJuridical(SupplierJuridicalDTO entity)
+        public async Task InsertSupplierJuridical(SupplierJuridicalDTO entity)
         {
+             if(!entity.Validate().IsValid)
+            {
+                foreach (var erro in entity.Validate().Errors)
+                {
+                    _notificationService.AddError(erro.ErrorMessage);
+                }
+                return;
+            }
             throw new NotImplementedException();
         }
 
-        public Task InsertSupplierPhysical(SupplierPhysicalDTO entity)
+        public async Task InsertSupplierPhysical(SupplierPhysicalDTO entity)
         {
+             if(!entity.Validate().IsValid)
+            {
+                foreach (var erro in entity.Validate().Errors)
+                {
+                    _notificationService.AddError(erro.ErrorMessage);
+                }
+                return;
+            }
             throw new NotImplementedException();
         }
 
-        public Task RemoveSupplier(SupplierDTO entity)
+        public async Task RemoveSupplier(SupplierDTO entity)
         {
+            if(!entity.Validate().IsValid)
+            {
+                foreach (var erro in entity.Validate().Errors)
+                {
+                    _notificationService.AddError(erro.ErrorMessage);
+                }
+                return;
+            }
+
             throw new NotImplementedException();
         }
 
-        public Task UpdateSupplier(SupplierDTO entity)
+        public async Task UpdateSupplier(SupplierDTO entity)
         {
+             if(!entity.Validate().IsValid)
+            {
+                foreach (var erro in entity.Validate().Errors)
+                {
+                    _notificationService.AddError(erro.ErrorMessage);
+                }
+                return;
+            }
             throw new NotImplementedException();
         }
 
-        public Task InsertPhone(PhoneDTO phone)
+        public async Task InsertPhone(PhoneDTO phone)
         {
+             if(!phone.Validate().IsValid)
+            {
+                foreach (var erro in phone.Validate().Errors)
+                {
+                    _notificationService.AddError(erro.ErrorMessage);
+                }
+                return;
+            }
             throw new NotImplementedException();
         }
 
-        public Task RemovePhone(PhoneDTO phone)
+        public async Task RemovePhone(PhoneDTO phone)
         {
+             if(!phone.Validate().IsValid)
+            {
+                foreach (var erro in phone.Validate().Errors)
+                {
+                    _notificationService.AddError(erro.ErrorMessage);
+                }
+                return;
+            }
             throw new NotImplementedException();
         }
 
-        public Task UpdatePhone(PhoneDTO phone)
+        public async Task UpdatePhone(PhoneDTO phone)
         {
+             if(!phone.Validate().IsValid)
+            {
+                foreach (var erro in phone.Validate().Errors)
+                {
+                    _notificationService.AddError(erro.ErrorMessage);
+                }
+                return;
+            }
             throw new NotImplementedException();
         }
 
-        public Task UpdateAddress(AddressDTO address)
+        public async Task UpdateAddress(AddressDTO address)
         {
+             if(!address.Validate().IsValid)
+            {
+                foreach (var erro in address.Validate().Errors)
+                {
+                    _notificationService.AddError(erro.ErrorMessage);
+                }
+                return;
+            }
             throw new NotImplementedException();
         }
     }

@@ -16,7 +16,7 @@ namespace Ecommerce.Service.DTO
             Cpf = cpf;
             Email = email;
         }
-        public ValidationResult IsValid(){
+        public ValidationResult Validate(){
             return new CostumerValidator().Validate(this);
         }
     }

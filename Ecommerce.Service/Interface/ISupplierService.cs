@@ -20,8 +20,8 @@ namespace Ecommerce.Service.Interface
         Task UpdateSupplier(SupplierDTO entity);
 
         Task InsertPhone(PhoneDTO phone);
-        Task RemovePhone(PhoneDTO phone);
         Task UpdatePhone(PhoneDTO phone);
+        Task RemovePhone(PhoneDTO phone);
         Task UpdateAddress(AddressDTO address);
     }
 }

@@ -11,10 +11,12 @@ namespace Ecommerce.Service.Service
     public class CategoryService : ICategoryService
     {
         private readonly ICategoryRepository _categoryRepository;
+        private readonly NotificationService _notificationService;
 
-        public CategoryService(ICategoryRepository categoryRepository)
+        public CategoryService(ICategoryRepository categoryRepository, NotificationService notificationService)
         {
             _categoryRepository = categoryRepository;
+            _notificationService = notificationService;
         }
 
         public async Task<Category> Find(Expression<Func<Category, bool>> expression)

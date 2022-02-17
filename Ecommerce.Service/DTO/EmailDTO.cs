@@ -14,7 +14,7 @@ namespace Ecommerce.Service.DTO
             EmailAddress = emailAddress;
             SupplierId = supplierId;
         }
-    public ValidationResult IsValid(){
+    public ValidationResult Validate(){
             return new EmailValidator().Validate(this);
         }
     }

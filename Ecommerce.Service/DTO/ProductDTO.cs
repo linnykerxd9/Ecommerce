@@ -29,7 +29,7 @@ namespace Ecommerce.Service.DTO
             SupplierId = supplierId;
             CategoryId = categoryId;
         }
-   public ValidationResult IsValid(){
+   public ValidationResult Validate(){
             return new ProductValidator().Validate(this);
         }
     }

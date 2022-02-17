@@ -18,7 +18,7 @@ namespace Ecommerce.Service.DTO
             CustomersId = customersId;
             ProductId = productId;
         }
-    public ValidationResult IsValid(){
+    public ValidationResult Validate(){
             return new ShoppingCartValidator().Validate(this);
         }
     }
