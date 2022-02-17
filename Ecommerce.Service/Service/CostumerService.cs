@@ -122,10 +122,15 @@ namespace Ecommerce.Service.Service
             if(_notificationService.HAsError())
                 return;
             ICollection<Purchases> purchasesListDomain = new List<Purchases>();
+            ICollection<ShoppingCartDTO> shopingCart = new List<ShoppingCartDTO>();
             foreach (var item in purchases)
             {
                 purchasesListDomain.Add(item.ToDomain());
+                shopingCart.Add(new ShoppingCartDTO(item.Quantity,item.TotalPrice,item.CustomersId,item.ProductId));
             }
+            await RemoveAllItemsShoppingCart(shopingCart);
+            if(_notificationService.HAsError())
+                return;
             await _costumerRepository.InsertPurchases(purchasesListDomain);
             await _costumerRepository.SaveChanges();
         }
@@ -167,7 +172,7 @@ namespace Ecommerce.Service.Service
             await _costumerRepository.InsertShoppingCart(costumerExists);
             await _costumerRepository.SaveChanges();
         }
-        public  async Task RemoveAllItemsShoppingCart(ICollection<ShoppingCartDTO> shoppingCart)
+        private async Task RemoveAllItemsShoppingCart(ICollection<ShoppingCartDTO> shoppingCart)
         {
             foreach (var item in shoppingCart)
             {
@@ -202,5 +207,6 @@ namespace Ecommerce.Service.Service
                 return;
             }
         }
+
     }
 }
