@@ -12,6 +12,7 @@ namespace ECommerce.Domain.Interface
         Task<ShoppingCart> FindShoppingCart(Expression<Func<ShoppingCart, bool>> expression);
         Task InsertShoppingCart(ShoppingCart shoppingCart);
         Task UpdateShoppingCart(ShoppingCart shoppingCart);
+        Task RemoveShoppingCart(ShoppingCart shoppingCart);
         Task RemoveAllItemsShoppingCart(IEnumerable<ShoppingCart> shoppingCart);
         Task InsertPurchases(IEnumerable<Purchases> purchases);
         Task RemovePurchases(Purchases purchases);

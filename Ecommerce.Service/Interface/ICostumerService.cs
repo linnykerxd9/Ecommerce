@@ -19,6 +19,7 @@ namespace Ecommerce.Service.Interface
         Task UpdateCostumer(CostumerDTO category);
         Task InsertShoppingCart(ShoppingCartDTO shoppingCart);
         Task UpdateItemShoppingCart(ShoppingCartDTO shoppingCart);
+        Task RemoveShoppingCart(ShoppingCartDTO shoppingCart);
         private Task RemoveAllItemsShoppingCart(ICollection<ShoppingCartDTO> shoppingCart)
         {
             throw new NotImplementedException();

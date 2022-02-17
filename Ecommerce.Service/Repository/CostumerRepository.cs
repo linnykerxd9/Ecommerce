@@ -79,10 +79,15 @@ namespace Ecommerce.Service.Repository
             _context.ShoppingCart.Update(shoppingCart);
             return Task.CompletedTask;
         }
-        public async Task RemoveAllItemsShoppingCart(IEnumerable<ShoppingCart> shoppingCart)
+        public Task RemoveShoppingCart(ShoppingCart shoppingCart)
         {
-            await _context.ShoppingCart.AddRangeAsync(shoppingCart);
+            _context.ShoppingCart.Remove(shoppingCart);
+            return Task.CompletedTask;
         }
-
+        public Task RemoveAllItemsShoppingCart(IEnumerable<ShoppingCart> shoppingCart)
+        {
+            _context.ShoppingCart.RemoveRange(shoppingCart);
+            return Task.CompletedTask;
+        }
     }
 }

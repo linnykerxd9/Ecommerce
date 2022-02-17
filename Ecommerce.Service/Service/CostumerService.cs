@@ -172,6 +172,19 @@ namespace Ecommerce.Service.Service
             await _costumerRepository.InsertShoppingCart(costumerExists);
             await _costumerRepository.SaveChanges();
         }
+        public async Task RemoveShoppingCart(ShoppingCartDTO shoppingCart)
+        {
+            if(!shoppingCart.Validate().IsValid)
+            {
+                foreach (var error in shoppingCart.Validate().Errors)
+                {
+                    _notificationService.AddError(error.ErrorMessage);
+                }
+                return;
+            }
+            await _costumerRepository.RemoveShoppingCart(shoppingCart.ToDomain());
+            await _costumerRepository.SaveChanges();
+        }
         private async Task RemoveAllItemsShoppingCart(ICollection<ShoppingCartDTO> shoppingCart)
         {
             foreach (var item in shoppingCart)
@@ -208,5 +221,6 @@ namespace Ecommerce.Service.Service
             }
         }
 
+        
     }
 }
